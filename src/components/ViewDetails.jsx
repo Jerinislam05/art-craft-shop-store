@@ -20,41 +20,55 @@ const ViewDetails = () => {
   } = craft;
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-4xl mx-auto p-4 bg-gray-50 rounded-lg shadow-md">
       <img
         src={image}
         alt={item_name}
         className="w-full h-64 object-cover mb-4 rounded"
       />
-      <h1 className="text-3xl font-bold mb-2">{item_name}</h1>
-      <p className="text-lg text-gray-600 mb-4">{description}</p>
+      <h1 className="text-3xl font-bold mb-2 text-primary">{item_name}</h1>
+      <p className="text-lg mb-4 text-gray-700">{description}</p>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <p>
-            <strong>Price:</strong> ${price}
+          <p className="mb-2">
+            <strong className="text-secondary">Price:</strong>{" "}
+            <span className="text-accent">${price}</span>
           </p>
-          <p>
-            <strong>Rating:</strong> {rating}
+          <p className="mb-2">
+            <strong className="text-secondary">Rating:</strong>{" "}
+            <span className="text-accent">{rating}</span>
           </p>
-          <p>
-            <strong>Subcategory Name:</strong> {subcategory_name}
+          <p className="mb-2">
+            <strong className="text-secondary">Subcategory Name:</strong>{" "}
+            <span className="text-accent">{subcategory_name}</span>
           </p>
-          <p>
-            <strong>Customization:</strong> {customization}
+          <p className="mb-2">
+            <strong className="text-secondary">Customization:</strong>{" "}
+            <span className="text-accent">{customization}</span>
           </p>
-          <p>
-            <strong>Processing Time:</strong> {processing_time}
+          <p className="mb-2">
+            <strong className="text-secondary">Processing Time:</strong>{" "}
+            <span className="text-accent">{processing_time}</span>
           </p>
-          <p>
-            <strong>Stock Status:</strong> {stock_status}
+          <p className="mb-2">
+            <strong className="text-secondary">Stock Status:</strong>{" "}
+            <span
+              className={`font-semibold ${
+                stock_status === "In Stock" ? "text-green-500" : "text-red-500"
+              }`}
+            >
+              {stock_status}
+            </span>
           </p>
         </div>
         <div>
-          <p>
-            <strong>Seller Name:</strong> {user_name}
+          <p className="mb-2">
+            <strong className="text-secondary">Seller Name:</strong>{" "}
+            <span className="text-accent">{user_name}</span>
           </p>
-          <p>
-            <strong>Seller Email:</strong> {user_email}
+          <p className="mb-2">
+            <strong className="text-secondary">Seller Email:</strong>{" "}
+            <span className="text-accent">{user_email}</span>
           </p>
         </div>
       </div>

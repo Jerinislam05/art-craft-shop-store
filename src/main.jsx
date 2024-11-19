@@ -7,12 +7,12 @@ import AllCraft from "./components/AllCraft.jsx";
 import AddCraft from "./components/AddCraft.jsx";
 import Register from "./components/Register.jsx";
 import Login from "./components/Login.jsx";
-import MyCraftList from "./components/MyCraftList.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AuthProviders from "./components/providers/AuthProviders.jsx";
 import { Toaster } from "react-hot-toast";
 import Home from "./components/Home.jsx";
 import ViewDetails from "./components/ViewDetails.jsx";
+import MyArtCraftList from "./components/MyArtCraftList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,10 +37,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "mylist",
+        path: "myartcraftlist",
         element: (
           <ProtectedRoute>
-            <MyCraftList />
+            <MyArtCraftList />
           </ProtectedRoute>
         ),
       },
