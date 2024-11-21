@@ -34,7 +34,7 @@ const AddCraft = () => {
     console.log(newArtCraft);
 
     // send data to the server
-    fetch("http://localhost:5000", {
+    fetch("http://localhost:5000/addcraft", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -47,7 +47,7 @@ const AddCraft = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Good job!",
-            text: "User added successfully!",
+            text: "Craft added successfully!",
             icon: "success",
           });
         }

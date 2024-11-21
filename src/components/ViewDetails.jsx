@@ -29,37 +29,45 @@ const ViewDetails = () => {
       <h1 className="text-3xl font-bold mb-2 text-primary">{item_name}</h1>
       <p className="text-lg mb-4 text-gray-700">{description}</p>
       <div className="grid grid-cols-2 gap-4">
-        <div>
-          <p className="mb-2">
-            <strong className="text-secondary">Price:</strong>{" "}
-            <span className="text-accent">${price}</span>
-          </p>
-          <p className="mb-2">
-            <strong className="text-secondary">Rating:</strong>{" "}
-            <span className="text-accent">{rating}</span>
-          </p>
-          <p className="mb-2">
-            <strong className="text-secondary">Subcategory Name:</strong>{" "}
-            <span className="text-accent">{subcategory_name}</span>
-          </p>
-          <p className="mb-2">
-            <strong className="text-secondary">Customization:</strong>{" "}
-            <span className="text-accent">{customization}</span>
-          </p>
-          <p className="mb-2">
-            <strong className="text-secondary">Processing Time:</strong>{" "}
-            <span className="text-accent">{processing_time}</span>
-          </p>
-          <p className="mb-2">
-            <strong className="text-secondary">Stock Status:</strong>{" "}
-            <span
-              className={`font-semibold ${
-                stock_status === "In Stock" ? "text-green-500" : "text-red-500"
-              }`}
-            >
-              {stock_status}
-            </span>
-          </p>
+        <div className="grid grid-cols-2">
+          <div>
+            <p className="mb-2">
+              <strong className="text-secondary">Price:</strong>{" "}
+              <span className="text-accent">${price}</span>
+            </p>
+            <p className="mb-2">
+              <strong className="text-secondary">Rating:</strong>{" "}
+              <span className="text-accent">{rating}</span>
+            </p>
+          </div>
+          <div>
+            <p className="mb-2">
+              <strong className="text-secondary">Subcategory Name:</strong>{" "}
+              <span className="text-accent">{subcategory_name}</span>
+            </p>
+            <p className="mb-2">
+              <strong className="text-secondary">Customization:</strong>{" "}
+              <span className="text-accent">{customization}</span>
+            </p>
+          </div>
+          <div>
+            <p className="mb-2">
+              <strong className="text-secondary">Processing Time:</strong>{" "}
+              <span className="text-accent">{processing_time}</span>
+            </p>
+            <p className="mb-2">
+              <strong className="text-secondary">Stock Status:</strong>{" "}
+              <span
+                className={`font-semibold ${
+                  stock_status === "In Stock"
+                    ? "text-green-500"
+                    : "text-red-500"
+                }`}
+              >
+                {stock_status}
+              </span>
+            </p>
+          </div>
         </div>
         <div>
           <p className="mb-2">

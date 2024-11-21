@@ -43,6 +43,7 @@ const router = createBrowserRouter([
             <MyArtCraftList />
           </ProtectedRoute>
         ),
+        loader: () => fetch("http://localhost:5000/addcraft"),
       },
       {
         path: "register",

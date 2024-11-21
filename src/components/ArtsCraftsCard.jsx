@@ -22,7 +22,7 @@ const ArtsCraftsCard = ({ craft }) => {
             </button>
           </Link>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };
