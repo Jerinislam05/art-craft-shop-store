@@ -13,6 +13,7 @@ import { Toaster } from "react-hot-toast";
 import Home from "./components/Home.jsx";
 import ViewDetails from "./components/ViewDetails.jsx";
 import MyArtCraftList from "./components/MyArtCraftList.jsx";
+import UpdateArtCraft from "./components/UpdateArtCraft.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "allcraft",
         element: <AllCraft></AllCraft>,
+        loader: () => fetch("http://localhost:5000/allcraft"),
       },
       {
         path: "addcraft",
@@ -35,6 +37,12 @@ const router = createBrowserRouter([
             <AddCraft />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "updateArtCraft/:id",
+        element: <UpdateArtCraft></UpdateArtCraft>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addcraft/${params.id}`),
       },
       {
         path: "myartcraftlist",
