@@ -3,8 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import ArtsCraftsCard from "./ArtsCraftsCard";
 
 const CraftItemsSection = () => {
-  const loadedCrafts = useLoaderData(); // Loaded crafts data from the backend
-  const [crafts, setCrafts] = useState(loadedCrafts); // State for managing crafts
+  const loadedCrafts = useLoaderData(); 
+  const [crafts, setCrafts] = useState(loadedCrafts)
 
   return (
     <div className="m-20">

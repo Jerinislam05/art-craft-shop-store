@@ -14,6 +14,7 @@ import Home from "./components/Home.jsx";
 import ViewDetails from "./components/ViewDetails.jsx";
 import MyArtCraftList from "./components/MyArtCraftList.jsx";
 import UpdateArtCraft from "./components/UpdateArtCraft.jsx";
+import NotFound from "./components/NotFound.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,12 +24,12 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/addcraft"),
+        loader: () => fetch("https://crafts-shop-server.vercel.app/addcraft"),
       },
       {
         path: "allcraft",
         element: <AllCraft></AllCraft>,
-        loader: () => fetch("http://localhost:5000/allcraft"),
+        loader: () => fetch("https://crafts-shop-server.vercel.app/allcraft"),
       },
       {
         path: "addcraft",
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
         path: "updateartcraft/:id",
         element: <UpdateArtCraft></UpdateArtCraft>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addcraft/${params.id}`),
+          fetch(`https://crafts-shop-server.vercel.app/addcraft/${params.id}`),
       },
       {
         path: "myartcraftlist",
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
             <MyArtCraftList />
           </ProtectedRoute>
         ),
-        loader: () => fetch("http://localhost:5000/addcraft"),
+        loader: () => fetch("https://crafts-shop-server.vercel.app/addcraft"),
       },
       {
         path: "register",
@@ -66,7 +67,7 @@ const router = createBrowserRouter([
         element: <ViewDetails></ViewDetails>,
         loader: async ({ params }) => {
           const response = await fetch(
-            `http://localhost:5000/addcraft/${params.id}`
+            `https://crafts-shop-server.vercel.app/addcraft/${params.id}`
           );
           if (!response.ok) {
             throw new Error("Failed to fetch craft details");
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
           </div>
         ),
       },
+      {
+        path: "*",
+        element: <NotFound></NotFound>
+      }
     ],
   },
 ]);
