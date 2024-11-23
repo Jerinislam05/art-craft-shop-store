@@ -1,11 +1,12 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateArtCraft = () => {
   const craft = useLoaderData();
+  const navigate = useNavigate();
   const { _id, image, item_name, description, price, rating } = craft;
 
-  const handleUpdateArtCraft = (event) => {
+  const handleupdateartcraft = (event) => {
     event.preventDefault();
 
     const form = event.target;
@@ -38,7 +39,7 @@ const UpdateArtCraft = () => {
     console.log(updatedArtCraft);
 
     // send data to the server
-    fetch("http://localhost:5000/addcraft", {
+    fetch(`http://localhost:5000/addcraft/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -47,20 +48,43 @@ const UpdateArtCraft = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log("send");
+
         console.log(data);
         if (data.modifiedCount > 0) {
+          // If modifiedCount > 0, show success modal and navigate
           Swal.fire({
-            title: "Good job!",
-            text: "Craft Updated successfully!",
+            title: "Craft Updated!",
+            text: "Your craft has been successfully updated.",
             icon: "success",
+            confirmButtonText: "Go to Craft Details",
+          }).then(() => {
+            // Navigate to the details page after closing the modal
+            navigate(`/details/${_id}`);
+          });
+        } else {
+          // If no changes were made, show an info alert
+          Swal.fire({
+            title: "No Changes",
+            text: "No changes were made to the craft.",
+            icon: "info",
           });
         }
+      })
+      .catch((error) => {
+        console.error("Error adding craft:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to add the craft. Please try again.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       });
   };
 
   return (
     <div>
-      <form onSubmit={handleUpdateArtCraft} className="space-y-4">
+      <form onSubmit={handleupdateartcraft} className="space-y-4">
         {/* Image URL */}
         <div>
           <label className="block text-sm font-medium">Image URL</label>

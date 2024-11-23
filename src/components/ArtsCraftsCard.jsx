@@ -57,7 +57,7 @@ const ArtsCraftsCard = ({ craft, crafts, setCrafts }) => {
           <div className="badge badge-outline">Rating: {rating}</div>
         </div>
         <div className="flex justify-center mt-4 gap-2">
-          <Link to={`updateArtCraft/${_id}`}>
+          <Link to={`updateartcraft/${_id}`}>
             <button className="btn bg-sky-900">Update</button>
           </Link>
           <button onClick={() => handleDelete(_id)} className="btn bg-pink-500">

@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddCraft = () => {
+  const navigate = useNavigate();
   const handleAddArtCraft = (event) => {
     event.preventDefault();
 
@@ -45,14 +47,29 @@ const AddCraft = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
+          // Show SweetAlert success modal
           Swal.fire({
-            title: "Good job!",
-            text: "Craft added successfully!",
+            title: "Craft Added!",
+            text: "Your craft has been successfully added.",
             icon: "success",
+            confirmButtonText: "Go to All Crafts",
+          }).then(() => {
+            // Navigate to AllCraft page after clicking OK
+            navigate("/allcraft");
           });
         }
+      })
+      .catch((error) => {
+        console.error("Error adding craft:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to add the craft. Please try again.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       });
   };
+
   return (
     <form onSubmit={handleAddArtCraft} className="space-y-4">
       {/* Image URL */}

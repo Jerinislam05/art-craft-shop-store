@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between bg-[#93A661] p-4 text-white">
+    <nav className="flex items-center justify-between bg-amber-900 p-4 text-white">
       <div className="text-2xl font-bold">
         <Link to="/">Art & Craft</Link>
       </div>
@@ -45,13 +45,13 @@ const Navbar = () => {
           <div className="space-x-4">
             <button
               onClick={() => navigate("/login")}
-              className="px-4 py-2 bg-blue-500 rounded hover:bg-blue-600"
+              className="px-4 py-2 bg-amber-950 rounded hover:bg-amber-700 hover:text-amber-950"
             >
               Login
             </button>
             <button
               onClick={() => navigate("/register")}
-              className="px-4 py-2 bg-green-500 rounded hover:bg-green-600"
+              className="px-4 py-2 bg-amber-950 rounded hover:bg-amber-700 hover:text-amber-950"
             >
               Register
             </button>

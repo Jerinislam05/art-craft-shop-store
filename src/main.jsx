@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "updateArtCraft/:id",
+        path: "updateartcraft/:id",
         element: <UpdateArtCraft></UpdateArtCraft>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/addcraft/${params.id}`),
