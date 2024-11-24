@@ -15,7 +15,7 @@ const ArtsCraftsCard = ({ craft, crafts, setCrafts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://crafts-shop-server.vercel.app/addcraft/${_id}`, {
+        fetch(`http://localhost:5000/addcraft/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -45,13 +45,16 @@ const ArtsCraftsCard = ({ craft, crafts, setCrafts }) => {
   };
 
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-2xl">
       <figure>
         <img src={image} alt={item_name} className="w-full h-48 object-cover" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{item_name}</h2>
-        <p className="text-gray-600">{description}</p>
+        {/* Center-align text */}
+        <div className="flex flex-col items-center text-center">
+          <h2 className="card-title text-2xl font-bold">{item_name}</h2>
+          <p className="text-gray-600">{description}</p>
+        </div>
         <div className="card-actions justify-between mt-4">
           <div className="badge badge-outline">Price: ${price}</div>
           <div className="badge badge-outline">Rating: {rating}</div>

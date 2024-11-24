@@ -24,12 +24,12 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch("https://crafts-shop-server.vercel.app/addcraft"),
+        loader: () => fetch("http://localhost:5000/addcraft"),
       },
       {
         path: "allcraft",
         element: <AllCraft></AllCraft>,
-        loader: () => fetch("https://crafts-shop-server.vercel.app/allcraft"),
+        loader: () => fetch("http://localhost:5000/allcraft"),
       },
       {
         path: "addcraft",
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         path: "updateartcraft/:id",
         element: <UpdateArtCraft></UpdateArtCraft>,
         loader: ({ params }) =>
-          fetch(`https://crafts-shop-server.vercel.app/addcraft/${params.id}`),
+          fetch(`http://localhost:5000/addcraft/${params.id}`),
       },
       {
         path: "myartcraftlist",
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             <MyArtCraftList />
           </ProtectedRoute>
         ),
-        loader: () => fetch("https://crafts-shop-server.vercel.app/addcraft"),
+        loader: () => fetch("http://localhost:5000/addcraft"),
       },
       {
         path: "register",
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         element: <ViewDetails></ViewDetails>,
         loader: async ({ params }) => {
           const response = await fetch(
-            `https://crafts-shop-server.vercel.app/addcraft/${params.id}`
+            `http://localhost:5000/addcraft/${params.id}`
           );
           if (!response.ok) {
             throw new Error("Failed to fetch craft details");
@@ -83,8 +83,8 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <NotFound></NotFound>
-      }
+        element: <NotFound></NotFound>,
+      },
     ],
   },
 ]);

@@ -67,7 +67,9 @@ const Navbar = () => {
                 </Link>
               </li>
               {!user ? (
-                <></>
+                <>
+                  
+                </>
               ) : (
                 <li>
                   <button
