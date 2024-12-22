@@ -7,7 +7,7 @@ const AllCraft = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allcraft")
+    fetch("https://crafts-shop-server.vercel.app/allcraft")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
