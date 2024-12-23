@@ -2,27 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap");
-
 body {
-  font-family: "Edu AU VIC WA NT Pre", sans-serif;
+	font-family: Arial, sans-serif;
+    @apply bg-zinc-900;
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #93a661;
-  padding: 1rem;
-  color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #93a661;
+	padding: 1rem;
+	color: white;
 }
 
 nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+a.active {
+	background-color: #00000060 !important;
 }
 
 nav a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
+}
+
+.container {
+	@apply px-4 md:px-2 lg:px-0;
+}
+
+.swiper-wrapper {
+	transition-timing-function: linear;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	background-color: white;
+	padding: 1.5rem;
+	border-radius: 999999px;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+	@apply !hidden md:!flex;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+	font-size: 24px !important;
+}
+
+.marquee-container {
+	@apply w-full overflow-hidden bg-gray-50 mx-auto;
+}
+
+.marquee {
+	display: flex;
+	animation: marquee 90s linear infinite;
+}
+
+.marquee:hover,
+.marquee.pause {
+	animation-play-state: paused;
+}
+
+.testimonial-card {
+	@apply flex-[0_0_calc(33.333%-20px)] my-0 mx-3 bg-orange-600 rounded-lg p-5 text-center;
+}
+
+/* Duplicate content to create infinite scrolling */
+.marquee-content {
+	display: flex;
+}
+
+.marquee-content > * {
+	display: inline-block;
+}
+
+/* Keyframe for infinite scroll */
+@keyframes marquee {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-700%);
+	}
 }

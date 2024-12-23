@@ -11,7 +11,7 @@ const Home = () => {
     const crafts = useLoaderData();
 
     return (
-        <div>
+        <div className="-mt-24">
             <Banner></Banner>
             <CraftItemsSection crafts={crafts}></CraftItemsSection>
             <CategoriesSection></CategoriesSection>
