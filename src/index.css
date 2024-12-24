@@ -4,7 +4,7 @@
 
 body {
 	font-family: Arial, sans-serif;
-    @apply bg-zinc-900;
+	@apply bg-zinc-900;
 }
 
 nav {
@@ -20,6 +20,22 @@ nav a {
 	text-decoration: none;
 	color: white;
 	font-weight: bold;
+}
+
+input,
+textarea,
+select {
+	@apply bg-transparent border-2 border-zinc-900 !text-zinc-900;
+}
+
+input::placeholder,
+textarea::placeholder,
+select {
+	@apply !text-zinc-500;
+}
+
+label {
+	@apply text-zinc-900;
 }
 
 a.active {

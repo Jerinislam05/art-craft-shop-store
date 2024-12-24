@@ -4,39 +4,39 @@ import Swal from "sweetalert2";
 const UpdateArtCraft = () => {
 	const craft = useLoaderData();
 	const navigate = useNavigate();
-	const { _id, image, item_name, description, price, rating } = craft;
+	const {
+		_id,
+		image,
+		item_name,
+		description,
+		price,
+		rating,
+		subcategory_name,
+		stock_status,
+		user_name,
+		user_email,
+		customization,
+		processing_time,
+	} = craft;
 
 	const handleupdateartcraft = (event) => {
 		event.preventDefault();
 
 		const form = event.target;
 
-		const image = form.image.value;
-		const item_name = form.item_name.value;
-		const subcategory_name = form.subcategory_name.value;
-		const description = form.description.value;
-		const price = form.price.value;
-		const rating = form.rating.value;
-		const customization = form.customization.value;
-		const processing_time = form.processing_time.value;
-		const stock_status = form.stock_status.value;
-		const user_name = form.user_name.value;
-		const user_email = form.user_email.value;
-
 		const updatedArtCraft = {
-			image,
-			item_name,
-			subcategory_name,
-			description,
-			price,
-			rating,
-			customization,
-			processing_time,
-			stock_status,
-			user_name,
-			user_email,
+			image: form.image.value,
+			item_name: form.item_name.value,
+			subcategory_name: form.subcategory_name.value,
+			description: form.description.value,
+			price: form.price.value,
+			rating: form.rating.value,
+			customization: form.customization.value,
+			processing_time: form.processing_time.value,
+			stock_status: form.stock_status.value,
+			user_name: form.user_name.value,
+			user_email: form.user_email.value,
 		};
-		console.log(updatedArtCraft);
 
 		// send data to the server
 		fetch(`http://localhost:5000/craft/${_id}`, {
@@ -83,8 +83,11 @@ const UpdateArtCraft = () => {
 	};
 
 	return (
-		<div>
-			<form onSubmit={handleupdateartcraft} className="space-y-4">
+		<div className="bg-white w-full mt-3 py-8">
+			<form
+				onSubmit={handleupdateartcraft}
+				className="space-y-4 container mx-auto"
+			>
 				{/* Image URL */}
 				<div>
 					<label className="block text-sm font-medium">
@@ -94,6 +97,8 @@ const UpdateArtCraft = () => {
 						type="url"
 						name="image"
 						className="w-full border p-2 rounded"
+						placeholder="Photo url"
+						defaultValue={image}
 						required
 					/>
 				</div>
@@ -107,6 +112,8 @@ const UpdateArtCraft = () => {
 						type="text"
 						name="item_name"
 						className="w-full border p-2 rounded"
+						placeholder="Item name"
+						defaultValue={item_name}
 						required
 					/>
 				</div>
@@ -116,12 +123,19 @@ const UpdateArtCraft = () => {
 					<label className="block text-sm font-medium">
 						Subcategory Name
 					</label>
-					<input
-						type="text"
+					<select
+						id="subcategory_name"
 						name="subcategory_name"
-						className="w-full border p-2 rounded"
-						required
-					/>
+						className="w-full p-2 border-zinc-900 border rounded-sm"
+						defaultValue={subcategory_name}
+					>
+						<option value="Painting">Painting</option>
+						<option value="Sculpture">Sculpture</option>
+						<option value="Jewelry">Jewelry</option>
+						<option value="Knitting">Knitting</option>
+						<option value="Ceramics">Ceramics</option>
+						<option value="Other">Other</option>
+					</select>
 				</div>
 
 				{/* Short Description */}
@@ -132,6 +146,8 @@ const UpdateArtCraft = () => {
 					<textarea
 						name="description"
 						className="w-full border p-2 rounded"
+						placeholder="Short description"
+						defaultValue={description}
 						rows="3"
 						required
 					></textarea>
@@ -144,6 +160,8 @@ const UpdateArtCraft = () => {
 						type="number"
 						name="price"
 						className="w-full border p-2 rounded"
+						placeholder="Item amount"
+						defaultValue={price}
 						required
 					/>
 				</div>
@@ -158,6 +176,8 @@ const UpdateArtCraft = () => {
 						min="0"
 						max="5"
 						className="w-full border p-2 rounded"
+						placeholder="Enter rating"
+						defaultValue={rating}
 						required
 					/>
 				</div>
@@ -170,6 +190,7 @@ const UpdateArtCraft = () => {
 					<select
 						name="customization"
 						className="w-full border p-2 rounded"
+						defaultValue={customization}
 						required
 					>
 						<option value="yes">Yes</option>
@@ -185,6 +206,8 @@ const UpdateArtCraft = () => {
 					<input
 						type="text"
 						name="processing_time"
+						placeholder="Processing time"
+						defaultValue={processing_time}
 						className="w-full border p-2 rounded"
 						required
 					/>
@@ -198,6 +221,7 @@ const UpdateArtCraft = () => {
 					<select
 						name="stock_status"
 						className="w-full border p-2 rounded"
+						defaultValue={stock_status}
 						required
 					>
 						<option value="In stock">In stock</option>
@@ -213,6 +237,8 @@ const UpdateArtCraft = () => {
 					<input
 						type="text"
 						name="user_name"
+						placeholder="User name"
+						defaultValue={user_name}
 						className="w-full border p-2 rounded"
 						required
 					/>
@@ -226,16 +252,18 @@ const UpdateArtCraft = () => {
 					<input
 						type="email"
 						name="user_email"
+						placeholder="User email"
+						defaultValue={user_email}
 						className="w-full border p-2 rounded"
 						required
 					/>
 				</div>
 
-				{/* Update Button */}
+				{/* Add Button */}
 				<input
 					type="submit"
-					value="Update Art & Craft"
-					className="btn btn-accent w-full block"
+					value="Update Craft Item"
+					className="btn bg-orange-600 text-white hover:bg-orange-800 w-full"
 				/>
 			</form>
 		</div>

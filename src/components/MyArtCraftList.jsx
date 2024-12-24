@@ -20,11 +20,13 @@ const MyArtCraftList = () => {
 	}
 
 	return (
-		<>
-			{myCrafts.map((craft) => (
-				<ArtsCraftsCard key={craft._id} craft={craft} />
-			))}
-		</>
+		<div className="mt-3 bg-zinc-900 w-full min-h-[75vh] py-8">
+			<div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 container mx-auto">
+				{myCrafts.map((craft) => (
+					<ArtsCraftsCard key={craft._id} craft={craft} />
+				))}
+			</div>
+		</div>
 	);
 };
 

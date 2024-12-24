@@ -77,7 +77,7 @@ const ArtsCraftsCard = ({ craft, crafts, setCrafts }) => {
 							View
 						</button>
 					</Link>
-					<Link to={`updateartcraft/${_id}`}>
+					<Link to={`/updateartcraft/${_id}`}>
 						<button className="btn bg-zinc-900 text-white hover:bg-zinc-800">
 							Update
 						</button>
